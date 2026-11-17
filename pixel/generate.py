@@ -67,8 +67,6 @@ def preview_html(cfg, projects):
 <main>
   <button onclick="document.body.classList.toggle('light')">toggle light / dark</button>
   <img src="hero.gif">
-  <p>The window shows the weather in {html.escape(cfg["weather"]["city"])} right now · the monitor scrolls my latest
-  commits · every book on the shelf is a language I write</p>
   <img src="about.gif"><img src="studio.gif"><img src="stats.gif">
   <img src="projects.gif"><div class="grid">{cards_html}</div>
   <img src="activity.gif"><img src="footer.gif">

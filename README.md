@@ -3,10 +3,6 @@
 </p>
 
 <p align="center">
-  <sub>The window shows the weather in Rabat right now · the monitor scrolls my latest commits · every book on the shelf is a language I write · the clock shows when the room was last redrawn</sub>
-</p>
-
-<p align="center">
   <a href="https://github.com/lowlight-studio">Lowlight Studio</a> ·
   <a href="https://www.linkedin.com/in/sabirbaichou/">LinkedIn</a> ·
   <a href="https://github.com/zehmbot?tab=repositories">Repositories</a>
