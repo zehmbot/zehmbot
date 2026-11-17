@@ -27,38 +27,6 @@
 
 <img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/activity.gif" width="100%" alt="Contribution activity over the last year, with current and best streaks." />
 
-<details>
-<summary><code>$ cat whoami.php</code></summary>
-
-```php
-<?php
-namespace Zehmbot;
-
-final readonly class Engineer
-{
-    public function __construct(
-        public string $fullName   = 'zehmbot',
-        public string $city       = 'Rabat',
-        public int    $age        = 24,
-        public string $country    = 'Morocco',
-        public string $email      = 'sabir.baichou@gmail.com',
-        public array  $languages  = ['PHP', 'Java', 'Python', 'Go'],
-        public array  $frameworks = ['Laravel', 'Spring Boot'],
-    ) {
-    }
-
-    public function linkedIn(): string
-    {
-        return "https://www.linkedin.com/in/sabirbaichou/";
-    }
-}
-
-$me = new Engineer();
-
-```
-
-</details>
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/footer.gif" width="100%" alt="Thanks for stopping by. The tea is always on." />
 </p>
