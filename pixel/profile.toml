@@ -1,0 +1,40 @@
+# Everything the pixel art says about you. Edit, push, and the
+# `pixel-profile` workflow re-renders the GIFs.
+
+login = "zehmbot"
+name = "zehmbot"
+role = "Software Engineer"
+tagline = "I build backends with Laravel and Spring Boot, tinker with Python and Go, and run on mint tea."
+location = "Rabat, Morocco"
+neon = "ZEHMBOT"                         # the pink sign above the monitor (keep it short)
+footer = "Thanks for stopping by. The tea is always on."
+
+# Portrait on the about card: "github" (your GitHub profile picture), an image
+# file in this folder (e.g. "me.jpg"), or "robot" for the fez-wearing bot.
+avatar = "github"
+# How it gets pixelated: "ink", "majorelle" (blue), "tea" (sepia) or "color".
+avatar_style = "ink"
+
+# One book per language on the shelf, in this order.
+languages = ["PHP", "Java", "Python", "Go"]
+# Thinner books next to them, also shown as chips on the about card.
+frameworks = ["Laravel", "Spring Boot"]
+
+# Where the workflow publishes the GIFs: the `output` branch of this repo.
+assets = "https://raw.githubusercontent.com/zehmbot/zehmbot/output"
+
+[projects]
+# Empty = your most-starred public repos. Or pin some: pinned = ["repo-a", "repo-b"]
+pinned = []
+count = 4
+
+[weather]
+city = "Rabat"
+latitude = 34.0209
+longitude = -6.8416
+timezone = "Africa/Casablanca"
+
+[colors]
+# Chip / book colours for anything GitHub's language list doesn't cover.
+Laravel = "#FF2D20"
+"Spring Boot" = "#6DB33F"
