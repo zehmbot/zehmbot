@@ -399,13 +399,12 @@ class Room:
             c.polygon([(x + 1, 53), (x + 4, 53), (x + 11, 38), (x + 8, 36)], (154, 64, 74))
             c.line(x + 3, 51, x + 9, 39, (196, 120, 110))
 
-        # shelf two: snake plant, trophy, rubber duck, flag
-        self._snake_plant(c, 252, 85)
-        c.sprite(266, 74, TROPHY, {"o": (90, 60, 20), "h": (255, 228, 136), "g": (232, 184, 64),
+        # shelf two: snake plant, trophy, rubber duck
+        self._snake_plant(c, 257, 85)
+        c.sprite(274, 74, TROPHY, {"o": (90, 60, 20), "h": (255, 228, 136), "g": (232, 184, 64),
                                    "d": (172, 122, 38), "b": WOOD})
-        c.sprite(281, 77, DUCK, {"o": (110, 76, 20), "y": (250, 212, 60), "Y": (255, 238, 150),
+        c.sprite(293, 77, DUCK, {"o": (110, 76, 20), "y": (250, 212, 60), "Y": (255, 238, 150),
                                  "d": (210, 158, 40), "k": INK, "q": (240, 128, 40)})
-        self._flag(c, 297, 85)
 
     def _book(self, c, x, base, w, h, col, label):
         top = base - h + 1
@@ -439,20 +438,6 @@ class Room:
         c.rect(x + 1, base - 5, 8, 5, (178, 94, 58))
         c.rect(x + 1, base - 5, 8, 1, (206, 120, 76))
         c.rect(x + 2, base - 3, 6, 1, (40, 80, 160))
-
-    def _flag(self, c, x, base):
-        c.rect(x, base - 15, 1, 15, WOOD_D)
-        c.px(x, base - 16, BRASS_H)
-        c.rect(x - 2, base - 1, 5, 1, WOOD)
-        fx, fy = x + 1, base - 15
-        c.rect(fx, fy, 12, 8, (193, 39, 45))
-        c.rect(fx, fy + 7, 12, 1, (150, 28, 34))
-        # tiny green pentagram
-        star = ["..#..", "#####", ".#.#.", "#...#"]
-        for j, row in enumerate(star):
-            for i, ch in enumerate(row):
-                if ch == "#":
-                    c.px(fx + 4 + i, fy + 2 + j, (0, 122, 51))
 
     def _clock(self, c):
         cx, cy = 296, 18
