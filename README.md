@@ -7,11 +7,14 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/lowlight-studio">Lowlight Studio</a> ·
   <a href="https://www.linkedin.com/in/sabirbaichou/">LinkedIn</a> ·
   <a href="https://github.com/zehmbot?tab=repositories">Repositories</a>
 </p>
 
-<img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/about.gif" width="100%" alt="About: zehmbot, software engineer in Rabat, Morocco. PHP, Java, Python, Go, Laravel and Spring Boot." />
+<img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/about.gif" width="100%" alt="About: zehmbot, software engineer in Rabat, Morocco, and founder of Lowlight Studio. PHP, Java, Python, Go, Laravel and Spring Boot." />
+
+<a href="https://github.com/lowlight-studio"><img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/studio.gif" width="100%" alt="Lowlight Studio, the indie game studio I founded. Its ember candle logo flickers next to the name. Visit github.com/lowlight-studio." /></a>
 
 <img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/stats.gif" width="100%" alt="GitHub stats: commits, pull requests, stars and best streak." />
 

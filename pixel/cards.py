@@ -220,6 +220,62 @@ def about(profile, gh, avatar=None):
 
 
 # =============================================================================
+# studio
+# =============================================================================
+EMBER = [(255, 247, 226), (255, 224, 168), (245, 186, 110), (224, 136, 62), (186, 92, 40), (140, 60, 30)]
+EMBER_BG = (11, 6, 9)
+
+
+def ember_text(c, x, y, s, scale=2):
+    """Text lit from above like the Lowlight wordmark: hot on top, sinking into
+    the dark toward the bottom."""
+    tmp = Canvas(FONT.width(s) * scale + 2, 9 * scale, (0, 0, 0))
+    tmp.text(0, 0, s, (255, 255, 255), scale=scale)
+    src = tmp.img.load()
+    rows = 7 * scale
+    for j in range(tmp.h):
+        col = EMBER[min(len(EMBER) - 1, j * len(EMBER) // rows)]
+        for i in range(tmp.w):
+            if src[i, j] != (0, 0, 0):
+                c.px(x + i, y + j, col)
+
+
+def studio(info, logo):
+    """A card for the studio: the animated ember mark plus who/what/where."""
+    W, H = 480, 100
+    years = info.get("founded")
+    meta = [f"FOUNDED {years}" if years else "", info.get("url", "").replace("https://", "")]
+    if info.get("public_repos"):
+        meta.append(f"{info['public_repos']} PUBLIC REPOS")
+    meta = " · ".join(m for m in meta if m)
+    desc = FONT.wrap(info.get("tagline", ""), 360, max_lines=2)
+    n = len(logo) * 2
+    frames = []
+    for t in range(n):
+        c = card(W, H)
+        # logo box: the mark keeps its own near-black background and flicker
+        c.rect(12, 12, 76, 76, BORDER)
+        c.rect(13, 13, 74, 74, EMBER_BG)
+        c.paste(logo[t % len(logo)], 18, 18)
+        x = 102
+        label(c, x, 13, "STUDIO", t=(t // 5) % 2 == 0, color=(245, 186, 110))
+        ember_text(c, x, 25, info.get("name", ""))
+        c.text(x, 46, info.get("role", ""), GOLD)
+        for i, line in enumerate(desc):
+            c.text(x, 59 + i * 11, line, SOFT)
+        c.text(x, 59 + len(desc) * 11 + 4, meta, MUTED, font=TINY)
+        # a few embers drift up the right edge of the card
+        for k in range(4):
+            age = (t * 2 + k * 5) % n
+            ex = 459 + (k * 5) % 13 + round(math.sin((age + k * 3) / 3))
+            ey = 84 - age * 3
+            if 14 < ey < 86:
+                c.px(ex, ey, EMBER[min(5, 1 + age * 5 // n)])
+        frames.append(c.img)
+    return frames, [95] * n, rounded_mask(W, H, STEPS)
+
+
+# =============================================================================
 # stats strip (counts up once, then holds)
 # =============================================================================
 ICONS = {

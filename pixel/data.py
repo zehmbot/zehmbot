@@ -113,7 +113,7 @@ query($login: String!) {
 """
 
 
-def gql(query, variables, token):
+def gql(query, variables, token, root="user"):
     req = urllib.request.Request(
         "https://api.github.com/graphql",
         data=json.dumps({"query": query, "variables": variables}).encode(),
@@ -124,7 +124,7 @@ def gql(query, variables, token):
         payload = json.load(r)
     if payload.get("errors"):
         raise RuntimeError(payload["errors"])
-    return payload["data"]["user"]
+    return payload["data"][root]
 
 
 def fetch_github(login, token, now):
@@ -177,6 +177,28 @@ def fetch_github(login, token, now):
         "repos": repos,
         "recent_commits": commits,
     }
+
+
+Q_ORG = """
+query($org: String!) {
+  organization(login: $org) {
+    url
+    createdAt
+    description
+    repositories(privacy: PUBLIC) { totalCount }
+  }
+}
+"""
+
+
+def fetch_org(org, token):
+    o = gql(Q_ORG, {"org": org}, token, root="organization")
+    return {"url": o["url"], "founded": int(o["createdAt"][:4]), "description": o.get("description") or "",
+            "public_repos": o["repositories"]["totalCount"]}
+
+
+def sample_org(org, today):
+    return {"url": f"https://github.com/{org}", "founded": today.year, "description": "", "public_repos": 0}
 
 
 # --- derived numbers -------------------------------------------------------------

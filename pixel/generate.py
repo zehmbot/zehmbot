@@ -24,13 +24,18 @@ import avatar  # noqa: E402
 import cards  # noqa: E402
 import scene  # noqa: E402
 from canvas import hex_rgb, rounded_mask, save_gif  # noqa: E402
-from data import (LANG_COLORS, book_label, fetch_github, fetch_weather, local_now,  # noqa: E402
-                  pick_projects, sample, streaks)
+from data import (LANG_COLORS, book_label, fetch_github, fetch_org, fetch_weather,  # noqa: E402
+                  local_now, pick_projects, sample, sample_org, streaks)
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 START, END = "<!-- pixel:projects:start -->", "<!-- pixel:projects:end -->"
 KINDS = ("clear", "clouds", "overcast", "rain", "storm", "fog", "snow")
+
+
+def load_frames(path):
+    from PIL import Image, ImageSequence
+    return [f.convert("RGB") for f in ImageSequence.Iterator(Image.open(path))]
 
 
 def projects_block(projects, base):
@@ -64,7 +69,7 @@ def preview_html(cfg, projects):
   <img src="hero.gif">
   <p>The window shows the weather in {html.escape(cfg["weather"]["city"])} right now · the monitor scrolls my latest
   commits · every book on the shelf is a language I write</p>
-  <img src="about.gif"><img src="stats.gif">
+  <img src="about.gif"><img src="studio.gif"><img src="stats.gif">
   <img src="projects.gif"><div class="grid">{cards_html}</div>
   <img src="activity.gif"><img src="footer.gif">
 </main>"""
@@ -110,6 +115,19 @@ def main():
     profile = {**cfg, "colors": colors, "name": cfg.get("name") or gh["name"]}
     projects = pick_projects(gh["repos"], login, cfg["projects"].get("pinned"), cfg["projects"].get("count", 4))
 
+    studio_cfg = cfg.get("studio")
+    studio_info, logo = None, None
+    if studio_cfg:
+        org = studio_cfg["org"]
+        try:
+            fetched = fetch_org(org, token) if args.live else sample_org(org, today)
+        except Exception as e:  # org stats are a bonus; the card still renders without them
+            print(f"organization info unavailable ({e})", file=sys.stderr)
+            fetched = sample_org(org, today) | {"founded": None}
+        studio_info = {**fetched, **{k: v for k, v in studio_cfg.items() if v}}
+        studio_info.setdefault("tagline", fetched["description"])
+        logo = load_frames(HERE / studio_cfg["logo"])
+
     portrait = None
     try:
         picture = avatar.load(cfg.get("avatar", "github"), HERE, gh.get("avatar_url"))
@@ -133,6 +151,7 @@ def main():
         ("hero.gif", lambda: scene.render(ctx) + (rounded_mask(scene.W, scene.H, (2, 1)),), 3),
         ("about.gif", lambda: cards.about(profile, gh, portrait), 2),
         ("stats.gif", lambda: cards.stats(gh), 2),
+        *([("studio.gif", lambda: cards.studio(studio_info, logo), 2)] if studio_info else []),
         ("projects.gif", lambda: cards.header("PROJECTS"), 2),
         ("activity.gif", lambda: cards.activity(gh, today), 2),
         ("footer.gif", lambda: cards.footer(profile), 2),

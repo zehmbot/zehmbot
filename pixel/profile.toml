@@ -3,7 +3,7 @@
 
 login = "zehmbot"
 name = "zehmbot"
-role = "Software Engineer"
+role = "Software Engineer · Founder @ Lowlight Studio"
 tagline = "I build backends with Laravel and Spring Boot, tinker with Python and Go, and run on mint tea."
 location = "Rabat, Morocco"
 neon = "ZEHMBOT"                         # the pink sign above the monitor (keep it short)
@@ -22,6 +22,14 @@ frameworks = ["Laravel", "Spring Boot"]
 
 # Where the workflow publishes the GIFs: the `output` branch of this repo.
 assets = "https://raw.githubusercontent.com/zehmbot/zehmbot/output"
+
+[studio]
+# The organization you founded, shown as its own card under "about".
+org = "lowlight-studio"
+name = "Lowlight Studio"
+role = "Founder"
+tagline = "An indie game studio crafting games across genres and platforms."
+logo = "lowlight-mark.gif"                # 64x64 pixel art in this folder, animated or not
 
 [projects]
 # Empty = your most-starred public repos. Or pin some: pinned = ["repo-a", "repo-b"]
