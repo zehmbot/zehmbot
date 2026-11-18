@@ -19,9 +19,9 @@
 
 <p>
   <a href="https://github.com/zehmbot/virtus"><img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/project-1.gif" width="49%" alt="virtus: a crew of specialized AI agents that collaborate on your projects, then move on to the next." /></a>
-  <a href="https://github.com/zehmbot/email-assistant-agent"><img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/project-2.gif" width="49%" alt="email-assistant-agent: An email assistant agent with authentication, dynamic tools and prompts (middleware), and human-in-the-loop approval before any email is sent, built with LangChain, LangGraph and Google Gemini." /></a>
-  <a href="https://github.com/zehmbot/wedding-planner-agent"><img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/project-3.gif" width="49%" alt="wedding-planner-agent: A multi-agent AI wedding planner: a coordinator agent hands off flights (Kiwi MCP), venues (web search) and the playlist (SQL) to specialist agents, built with LangChain and Google Gemini." /></a>
-  <a href="https://github.com/zehmbot/personal-chef-agent"><img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/project-4.gif" width="49%" alt="personal-chef-agent: An AI agent that turns your leftover ingredients into recipes, built with LangChain and Tavily web search" /></a>
+  <a href="https://github.com/zehmbot/kairos"><img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/project-2.gif" width="49%" alt="kairos: open-source studio hub for videos made with Claude Code" /></a>
+  <a href="https://github.com/zehmbot/email-assistant-agent"><img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/project-3.gif" width="49%" alt="email-assistant-agent: An email assistant agent with authentication, dynamic tools and prompts (middleware), and human-in-the-loop approval before any email is sent, built with LangChain, LangGraph and Google Gemini." /></a>
+  <a href="https://github.com/zehmbot/wedding-planner-agent"><img src="https://raw.githubusercontent.com/zehmbot/zehmbot/output/project-4.gif" width="49%" alt="wedding-planner-agent: A multi-agent AI wedding planner: a coordinator agent hands off flights (Kiwi MCP), venues (web search) and the playlist (SQL) to specialist agents, built with LangChain and Google Gemini." /></a>
 </p>
 <!-- pixel:projects:end -->
 
