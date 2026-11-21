@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-8"><title>Pixel profile preview</title>
+<style>
+  body { margin: 0; background: #0d1117; color: #c9d1d9; font: 14px/1.5 -apple-system, Segoe UI, sans-serif; }
+  body.light { background: #fff; color: #1f2328; }
+  main { max-width: 830px; margin: 24px auto; padding: 0 16px; }
+  img { width: 100%; display: block; margin: 8px 0; }
+  .grid { display: flex; gap: 2%; flex-wrap: wrap; } .grid a { width: 49%; }
+  p { text-align: center; font-size: 12px; } button { float: right; }
+</style>
+<main>
+  <button onclick="document.body.classList.toggle('light')">toggle light / dark</button>
+  <img src="hero.gif">
+  <img src="about.gif"><img src="studio.gif"><img src="stats.gif">
+  <img src="projects.gif"><div class="grid"><a href="https://github.com/zehmbot/virtus"><img src="project-1.gif"></a><a href="https://github.com/zehmbot/kairos"><img src="project-2.gif"></a><a href="https://github.com/zehmbot/email-assistant-agent"><img src="project-3.gif"></a><a href="https://github.com/zehmbot/wedding-planner-agent"><img src="project-4.gif"></a></div>
+  <img src="activity.gif"><img src="footer.gif">
+</main>
